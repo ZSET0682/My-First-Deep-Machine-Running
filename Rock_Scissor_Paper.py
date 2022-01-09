@@ -92,12 +92,10 @@ print("y_test shape: {}".format(y_test.shape))
 
 # 시험용 이미지가 잘 들어왔는지 출력해 봅시다!
 plt.imshow(x_train[0])
-print('라벨: ', y_train[0])
-
+plt.show()
 # 검증용 테스트 이미지가 잘 들어왔는지도 출력해 봅시다!
 plt.imshow(x_test[0])
-print('라벨: ', y_train[0])
-
+plt.show()
 # set_model()
 model = set_model()
 
