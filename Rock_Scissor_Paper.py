@@ -82,7 +82,6 @@ def edu_model(model):  # 선정한 모델으로 학습을 시작합니다.
     return model
 
 
-
 def test_model(model):  # 학습이 잘 되었는지 다른종류의 가위바위보 사진을 통해 검증해 봅시다!(tesorflow 공식 가위바위보 이미지파일)
     test_loss, test_accuracy = model.evaluate(x_test_norm,y_test, verbose=2)
     print("test_loss: {} ".format(test_loss))
