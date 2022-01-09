@@ -1,19 +1,18 @@
 from sklearn.datasets import load_digits
-from sklearn.datasets import load_wine
-from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-import matplotlib.pyplot as plt
-import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
 from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import LogisticRegression
 
+import matplotlib.pyplot as plt
+import pandas as pd
+
 digits = load_digits()
 digits_feature = digits.feature_names
-digits_target = wine.target_names
+digits_target = digits.target_names
 digits_data = digits.data
 digits_label = digits.target
 print('손글씨 분류 프로젝트!\n')
