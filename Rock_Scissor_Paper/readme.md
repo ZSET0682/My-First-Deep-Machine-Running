@@ -28,5 +28,4 @@ https://studyfield.tistory.com/652
 다음에는 LMS에만 묶여 있지 않고 빠르게 구글의 바다속으로 떠나자;;
 그리고 fit()에서 validation_split=0.3 사용하여 정확도의 정당성(?) 도 추가했는데 정확히 이것이 어떻게 도대체 왜 정확도에 영향을 주는지는 잘 모르겠다..
 
-https://vision-ai.tistory.com/entry/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%EC%84%B1%EB%8A%A5-%ED%8F%89%EA%B0%80-1-Keras%EC%9D%98-validationsplit-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
-
+정확도 올리는 과정이 진척이 안되서 화가나고 있는차에 자꾸만 눈에 밟히는 반복되는 코드가좀 불-편 하여 조금 변경을 하게 되었다.
