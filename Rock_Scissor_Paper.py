@@ -1,9 +1,12 @@
 from PIL import Image
+from keras import models
+from keras.callbacks import ReduceLROnPlateau
 import keras
 import numpy as np
 import matplotlib.pyplot as plt
 import glob
 import os
+
 
 # 함수 부분!
 def resize_images(img_path):  # 28*28이 아닌 사진파일들을 변환해 주는 함수입니다!
@@ -48,27 +51,44 @@ def load_data(img_path, number_of_data=300):  # x_train, y_train 에 데이터�
 
 
 def set_model():  # 사용 모델을 설정하고 하이퍼 피라미터를 설정 합니다.
+# https://junstar92.tistory.com/102
+# https://wikidocs.net/61374
+# https://studyfield.tistory.com/652
+    # 모델 설계
     model=keras.models.Sequential()
-    model.add(keras.layers.Conv2D(256, (3,3), activation='relu', input_shape=(28,28,3)))
-    model.add(keras.layers.MaxPool2D(2,2))
-    model.add(keras.layers.Conv2D(512, (3,3), activation='relu'))
+    model.add(keras.layers.Conv2D(16, (3,3), activation='relu', input_shape=(28,28,3), kernel_regularizer=keras.regularizers.l2(0.001)))
+    model.add(keras.layers.Dropout(0.1))
+    model.add(keras.layers.MaxPooling2D(2,2))
+    
+    model.add(keras.layers.Conv2D(32, (3,3), activation='relu'))
+    model.add(keras.layers.Dropout(0.1))
     model.add(keras.layers.MaxPooling2D((2,2)))
+    
+    model.add(keras.layers.Conv2D(64, (3,3), activation='relu'))
+    model.add(keras.layers.MaxPooling2D((2,2)))
+    
     model.add(keras.layers.Flatten())
-    model.add(keras.layers.Dense(65, activation='relu'))
     model.add(keras.layers.Dense(3, activation='softmax'))
+    
+    # 모델 개요
+    model.summary()
     return model
 
 
-def edu_model(model, x_train, y_train):  # 선정한 모델으로 학습을 시작합니다.
+def edu_model(model):  # 선정한 모델으로 학습을 시작합니다.
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    model.fit(x_train,y_train, epochs=10)
+    model.fit(x_train_norm, y_train, validation_split=0.3, epochs=30)
 
-def test_model(model, x_train, y_train):  # 학습이 잘 되었는지 다른종류의 가위바위보 사진을 통해 검증해 봅시다!(tesorflow 공식 가위바위보 이미지파일)
-    test_loss, test_accuracy = model.evaluate(x_test,y_test, verbose=2)
+    return model
+
+
+
+def test_model(model):  # 학습이 잘 되었는지 다른종류의 가위바위보 사진을 통해 검증해 봅시다!(tesorflow 공식 가위바위보 이미지파일)
+    test_loss, test_accuracy = model.evaluate(x_test_norm,y_test, verbose=2)
     print("test_loss: {} ".format(test_loss))
     print("test_accuracy: {}".format(test_accuracy))
 
-# 메인 부분!
+
 # resize_images()
 path = ["/aiffel/rock_scissor_paper/scissor", "/aiffel/rock_scissor_paper/rock", "/aiffel/rock_scissor_paper/paper",  # 가위 이미지가 저장된 디렉토리! 여러번 쓰기 싫어용~ (테스트 포함)
     "/aiffel/rock_scissor_paper/test/scissor", "/aiffel/rock_scissor_paper/test/rock", "/aiffel/rock_scissor_paper/test/paper"]
@@ -96,11 +116,12 @@ plt.show()
 # 검증용 테스트 이미지가 잘 들어왔는지도 출력해 봅시다!
 plt.imshow(x_test[0])
 plt.show()
+
 # set_model()
 model = set_model()
 
 # edu_model()
-edu_model(model,x_train,y_train)
+model = edu_model(model)
 
 # test_model()
-test_model(model,x_train,y_train)
+test_model()
