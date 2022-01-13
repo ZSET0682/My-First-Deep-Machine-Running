@@ -1,7 +1,7 @@
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-import pandas as pd
+
 
 
 # 데이터 불러오고 정리하기!
