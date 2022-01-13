@@ -34,9 +34,9 @@ model_Tree = DecisionTreeClassifier(random_state=1)
 model_RandomForest = RandomForestClassifier(random_state=1)
 model_svm = svm.SVC(random_state=1)  
 model_SGDClassifier = SGDClassifier(random_state=1)
-model_LogisticRegreession = LogisticRegression(random_state=1,max_iter=2000)  # LogisticRegreession은 기본 반복횟수로는 수렴하지 못했다..왜지?
+model_LogisticRegreession = LogisticRegression(random_state=1,max_iter=2000)  # LogisticRegreession은 기본 반복횟수로는 수렴하지 못했다..왜지? 아마도 데이터셋의 양 때문인듯 한데 정확한 정리가 찾아볼 수 없었다. 
 
-model = [model_Tree,model_RandomForest,model_svm,model_SGDClassifier,model_LogisticRegreession]  
+model = [model_Tree,model_RandomForest,model_svm,model_SGDClassifier,model_LogisticRegreession]  # 모델들을 리스트에 넣어 반복문 준비하기!
 for model in model:  # 모델 한꺼번에 학습시키기 & 결과 표시하기!
     print('사용한 모델 :',model,'\n\n') 
     X_train, X_test, y_train, y_test = train_test_split(cancer_data, cancer_label, test_size=0.2, random_state=2)  # 모델 8:2 로 분리하기
