@@ -7,9 +7,6 @@ from sklearn import svm
 from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import LogisticRegression
 
-import matplotlib.pyplot as plt
-import pandas as pd
-
 digits = load_digits()
 digits_feature = digits.feature_names
 digits_target = digits.target_names
