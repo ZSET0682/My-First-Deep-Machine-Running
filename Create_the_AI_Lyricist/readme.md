@@ -16,5 +16,7 @@ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=qbxlvnf11&lo
 
 
 ## 시행착오
-Embedding Size와 Hidden Size를 조절하면 문장이 이상하게 나오는 경우도 있고 너무 오래 걸려서 도저희 진행할 수 없는 경우가 있어서  
-사실 별로 좋은 시도는 아니였던것 같은데, 다른 사람들이 어떻게 해결했는지 나와 무엇이 다른지 확인해 볼 필요가 있다.
+1. https://www.dinolabs.ai/m/189 을 참고해서 간단하게 토큰의 최대 길이를 설정해 주었다.  
+  
+2. Embedding Size와 Hidden Size를 조절하면 문장이 이상하게 나오는 경우도 있고 너무 오래 걸려서 도저희 진행할 수 없는 경우가 있어서  
+사실 별로 좋은 시도는 아니였던것 같은데, 다른 사람들이 어떻게 해결했는지 나와 무엇이 다른지 확인해 볼 필요가 있다.  
