@@ -12,7 +12,7 @@ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=qbxlvnf11&lo
 시각화를 이번에야 말로 적용 하려고 했었는데 학습 시간이 너무 오래 걸려서 이번까지만 미루기로 했다 ㅠㅠ
 
 ## 의문
-<start>와 <end>로 학습문장과 타겟문장을 나누는 부분이 잘 이해 되지 않았다. 찾아서 볼 필요가 있을듯 하다!  
+start와 end로 학습문장과 타겟문장을 나누는 부분이 잘 이해 되지 않았다. 찾아서 볼 필요가 있을듯 하다!  
 
 
 ## 시행착오
